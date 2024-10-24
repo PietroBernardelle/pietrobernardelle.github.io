@@ -24,9 +24,9 @@ author:
   avatar           : "profile.JPG"
   name             : "Pietro Bernardelle"
   pronouns         : # example: "she/her"  
-  bio              : "1st year PhD student at The University of Queensland"
+  bio              : "1st year PhD student at\nThe University of Queensland"
   location         : "Brisbane, Australia"
-  employer         : ""
+  employer         : 
   uri              : # URL
   email            : "p.bernardelle@uq.edu.au" 
 
