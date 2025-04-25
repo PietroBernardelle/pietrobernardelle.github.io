@@ -1,34 +1,43 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"demartini":
+  - firstname: ["Gianluca", "G."]
+    url: https://www.gianlucademartini.net/  # Replace with actual URL
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"civelli":
+  - firstname: ["Stefano", "S."]
+    url: https://stefanocivelli.com/  # Replace with actual URL
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+# "adams":
+#   - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
+#     url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+# "podolsky":
+#   - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
+#     url: https://en.wikipedia.org/wiki/Boris_Podolsky
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+# "rosen":
+#   - firstname: ["Nathan", "N."]
+#     url: https://en.wikipedia.org/wiki/Nathan_Rosen
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
+# "bach":
+#   - firstname: ["Johann Sebastian", "J. S."]
+#     url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
 
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+#   - firstname: ["Carl Philipp Emanuel", "C. P. E."]
+#     url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
 
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+# "przibram":
+#   - firstname: ["Karl"]
+#     url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+
+# "schrodinger":
+#   - firstname: ["Erwin"]
+#     url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
+
+# "lorentz":
+#   - firstname: ["Hendrik Antoon"]
+#     url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+
+# "planck":
+#   - firstname: ["Max"]
+#     url: https://en.wikipedia.org/wiki/Max_Planck
