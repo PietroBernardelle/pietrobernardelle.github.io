@@ -2,11 +2,11 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Pietro Bernardelle
     - name: Date of Birth
-      value: 14th March 1879
+      value: 28th August 1999
     - name: Languages
-      value: English, German
+      value: English, Italian
 
 - title: Education
   type: time_table
