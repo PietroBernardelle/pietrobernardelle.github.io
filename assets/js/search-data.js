@@ -405,16 +405,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/al-folio/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
-          description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/al-folio/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-attending-the-web-conference-2025-sydney-with-the-dlab-i-will-be-presenting-a-poster-for-our-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas-if-you-ll-be-there-let-s-connect",
+          title: 'Attending The Web Conference 2025 (Sydney) with the DLab. I will be presenting...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
