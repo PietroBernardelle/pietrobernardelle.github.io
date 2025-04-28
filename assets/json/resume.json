@@ -24,13 +24,31 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
+      "name": "The University of Queensland - School of EECS",
+      "position": "Academic Tutor",
+      "url": "https://programs-courses.uq.edu.au/course.html?course_code=DATA7201",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-01",
+      "summary": "Tutoring Data Analysis at Scale (DATA7201)"
+      // "highlights": ["Relativity"]
+    },
+    {
+      "name": "The University of Queensland - School of EECS",
+      "position": "Research Assistant",
+      "url": "https://eecs.uq.edu.au/",
+      "startDate": "2023-11-01",
+      "endDate": "2024-01-01",
+      "summary": "Graph Based Reinforcement Learning for Pair Selection"
+      // "highlights": ["Relativity"]
+    },
+    {
+      "name": "CIRES",
+      "position": "Research Intern",
       "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "startDate": "2023-08-01",
+      "endDate": "2023-11-01",
+      "summary": "Graph Based Reinforcement Learning for Pair Selection"
+      // "highlights": ["Relativity"]
     }
   ],
   // "volunteer": [
