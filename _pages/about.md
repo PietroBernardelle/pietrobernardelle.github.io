@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Candidate, <a href='https://www.uq.edu.au/'>The University of Queensland</a>
+subtitle: PhD Candidate, The University of Queensland
 
 profile:
   align: right
@@ -27,11 +27,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey there! I'm Pietro, a PhD candidate at The University of Queensland focused on the intersection of large language models (LLMs) and social science. Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my research explores biases in current LLMs, develops mitigation strategies, and analyzes their impact on users.
+Hey there! 
 
-My recent work includes a short paper on influencing political ideology in LLMs (The Web Conference 2025, formerly WWW), optimizing preference learning for LLMs (SIGIR-AP), and creating tools to evaluate LLM alignment.
+I'm Pietro, a Computer Science PhD candidate at [The University of Queensland](https://www.uq.edu.au/) working on the intersection of large language models (LLMs) and social science. Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my research explores biases in current LLMs, designs bias mitigation approaches, and evaluates how these solutions enhance user experiences.
 
-My academic journey began with a Bachelor of Science in Engineering of Computing Systems from Polytechnic University of Milan (PoliMi), followed by a Master of Science in Computer Science & Engineering with AI specialization. I was awarded a scholarship for a double degree program between The University of Queensland (UQ) and PoliMi, completing a Master of Engineering Science (Management) with a Software Engineering major at UQ earning a Dean's Commendation for Academic Excellence.
+My recent work include:
+- A short paper on influencing political ideology in LLMs using synthetic persona ([The Web Conference 2025](https://www2025.thewebconf.org/)).
+- A short paper examining how data quality influences LLMs alignment thorugh Direct Preference Optimization (DPO) ([SIGIR-AP 2024](https://www.sigir-ap.org/sigir-ap-2024/)).
+- Developing a framework to measures LLM alignment effectiveness across various downstream applications (ongoing research).
 
-Currently, I work as a tutor for Data Analysis at Scale (DATA7201) at UQ. 
+<!-- My academic journey started with a Bachelor of Science in Engineering of Computing Systems at Polytechnic University of Milan (PoliMi), followed by a Master of Science in Computer Science & Engineering with AI specialization. I was awarded a scholarship for a double degree program between The University of Queensland (UQ) and PoliMi, completing a Master of Engineering Science (Management) with a Software Engineering major at UQ earning a Dean's Commendation for Academic Excellence. -->
+
+I currently serve as a tutor for [DATA7201](https://programs-courses.uq.edu.au/course.html?course_code=DATA7201) (Data Analysis at Scale) at The University of Queensland.
 <!-- Previously, I worked as a Research Assistant and Research Intern at UQ and [CIRES](https://cires.org.au/), contributing to projects on Graph-Based Reinforcement Learning for Pair Selection under Professor Demartini's guidance. -->

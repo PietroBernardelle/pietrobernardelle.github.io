@@ -5,6 +5,5 @@ inline: true
 related_posts: false
 ---
 
-Attending [The Web Conference 2025](https://www2025.thewebconf.org/) (Sydney) with the DLab. <br>
-I will be presenting a poster for our short paper titled "Mapping and Influencing the Political Ideology of Large Language Models using Synthetic Personas". 
-If you'll be there, let's connect!
+Attended [The Web Conference 2025](https://www2025.thewebconf.org/) (Sydney). <br>
+I presented a poster for our short paper titled "[Mapping and Influencing the Political Ideology of Large Language Models using Synthetic Personas](https://arxiv.org/abs/2412.14843)".
