@@ -398,8 +398,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-attending-the-web-conference-2025-sydney-with-the-dlab-i-will-be-presenting-a-poster-for-our-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas-if-you-ll-be-there-let-s-connect",
-          title: 'Attending The Web Conference 2025 (Sydney) with the DLab. I will be presenting...',
+            },},{id: "news-attended-the-web-conference-2025-sydney-i-presented-a-poster-for-our-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas",
+          title: 'Attended The Web Conference 2025 (Sydney). I presented a poster for our short...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
