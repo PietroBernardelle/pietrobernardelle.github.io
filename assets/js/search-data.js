@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -398,8 +398,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-attended-the-web-conference-2025-sydney-i-presented-a-poster-for-our-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas",
-          title: 'Attended The Web Conference 2025 (Sydney). I presented a poster for our short...',
+            },},{id: "news-attended-the-web-conference-2025-sydney-we-presented-our-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas-we-won-best-paper-award-at-the-mm4sg-workshop-for-our-paper-the-impact-of-persona-based-political-perspectives-on-hateful-content-detection",
+          title: 'Attended The Web Conference 2025 (Sydney): We presented our short paper titled “Mapping...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
