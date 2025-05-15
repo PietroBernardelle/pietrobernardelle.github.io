@@ -5,5 +5,6 @@ inline: true
 related_posts: false
 ---
 
-Attended [The Web Conference 2025](https://www2025.thewebconf.org/) (Sydney). <br>
-I presented a poster for our short paper titled "[Mapping and Influencing the Political Ideology of Large Language Models using Synthetic Personas](https://arxiv.org/abs/2412.14843)".
+Attended [The Web Conference 2025](https://www2025.thewebconf.org/) (Sydney): <br>
+- We presented our short paper titled "[Mapping and Influencing the Political Ideology of Large Language Models using Synthetic Personas](https://arxiv.org/abs/2412.14843)"
+- We won <u>Best Paper Award</u> at the [MM4SG](https://sites.google.com/view/mm4sg-webconf25) Workshop for our paper "[The Impact of Persona-based Political Perspectives on Hateful Content Detection](https://arxiv.org/abs/2502.00385)"
