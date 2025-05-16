@@ -29,7 +29,7 @@ latest_posts:
 
 Hey there! 
 
-I'm Pietro, a Computer Science PhD candidate at [The University of Queensland](https://www.uq.edu.au/) working on the intersection of large language models (LLMs) and social science. Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my research explores biases in current LLMs, designs bias mitigation approaches, and evaluates how these solutions enhance user experiences.
+I'm Pietro, a first year Computer Science PhD candidate at [The University of Queensland](https://www.uq.edu.au/) working on the intersection of large language models (LLMs) and social science. Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my research explores biases in current LLMs, designs bias mitigation approaches, and evaluates how these solutions enhance user experiences.
 
 My recent work include:
 - Developing a framework to reduce political bias in LLMs using Direct Preference Optimization (DPO) (<u>ongoing research</u>).
