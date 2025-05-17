@@ -15,11 +15,11 @@
       "region": "QLD"
     },
     "profiles": [
-      {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
-      }
+      // {
+      //   "network": "Twitter",
+      //   "username": "AlbertEinstein",
+      //   "url": "https://twitter.com/AlbertEinstein"
+      // }
     ]
   },
   "work": [
@@ -44,7 +44,7 @@
     {
       "name": "CIRES",
       "position": "Research Intern",
-      "url": "https://example.com",
+      "url": "https://cires.org.au/",
       "startDate": "2023-08-01",
       "endDate": "2023-11-01",
       "summary": "Graph Based Reinforcement Learning for Pair Selection"
@@ -67,7 +67,7 @@
     {
       "institution": "The University of Queensland",
       "location": "Brisbane, Australia",
-      "url": "https://www.uq.edu.au/",
+      "url": "https://study.uq.edu.au/study-options/programs/doctor-philosophy-7501",
       "area": "Artificial Intelligence",
       "studyType": "PhD",
       "startDate": "2024-07-01",
@@ -78,7 +78,7 @@
     {
       "institution": "The University of Queensland",
       "location": "Brisbane, Australia",
-      "url": "https://www.uq.edu.au/",
+      "url": "https://study.uq.edu.au/study-options/programs/master-engineering-science-management-5530",
       "area": "Software Engineering",
       "studyType": "M.Sc. in Engineering Science (Management)",
       "startDate": "2023-02-23",
