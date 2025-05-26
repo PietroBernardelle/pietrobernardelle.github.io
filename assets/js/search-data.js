@@ -398,8 +398,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-attended-the-web-conference-2025-sydney-we-presented-a-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas-we-won-the-best-paper-award-at-the-mm4sg-workshop-for-our-paper-the-impact-of-persona-based-political-perspectives-on-hateful-content-detection",
-          title: 'Attended The Web Conference 2025 (Sydney): We presented a short paper titled “Mapping...',
+            },},{id: "news-attended-the-web-conference-2025-sydney-we-won-the-best-paper-award-at-the-mm4sg-workshop-for-our-paper-the-impact-of-persona-based-political-perspectives-on-hateful-content-detection-we-presented-a-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas",
+          title: 'Attended The Web Conference 2025 (Sydney): We won the Best Paper Award at...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
