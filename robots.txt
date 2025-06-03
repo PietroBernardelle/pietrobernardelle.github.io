@@ -1,4 +1,14 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/json/
+Disallow: *.pdf$
+
+# Specific bot rules
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
 
 Sitemap: https://pietrobernardelle.github.io/sitemap.xml
