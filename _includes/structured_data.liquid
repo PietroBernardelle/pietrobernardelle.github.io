@@ -1,0 +1,67 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Pietro Bernardelle",
+  "url": "{{ site.url }}",
+  "image": "{{ site.url }}/assets/img/pb_pic.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/pietro-bernardelle",
+    "https://github.com/PietroBernardelle",
+    "https://scholar.google.com/citations?user=Sq0ZZhYAAAAJ",
+    "https://orcid.org/0009-0003-3657-9229"
+  ],
+  "jobTitle": "PhD Candidate in Computer Science",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "The University of Queensland",
+    "url": "https://www.uq.edu.au/"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Polytechnic University of Milan",
+      "url": "https://www.polimi.it/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "The University of Queensland",
+      "url": "https://www.uq.edu.au/"
+    }
+  ],
+  "knowsAbout": ["Large Language Models", "AI Bias", "Machine Learning", "Direct Preference Optimization", "Natural Language Processing"],
+  "description": "Computer Science PhD candidate researching bias mitigation in large language models and AI alignment"
+}
+</script>
+
+{% if page.layout == 'post' or page.layout == 'distill' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_updated %}
+  "dateModified": "{{ page.last_updated | date_to_xmlschema }}",
+  {% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "Pietro Bernardelle",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Pietro Bernardelle",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/img/pb_pic.jpg"
+    }
+  },
+  "description": "{{ page.description | escape }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}

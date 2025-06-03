@@ -1,4 +1,24 @@
 # -----------------------------------------------------------------------------
+# SEO-critical fields
+# -----------------------------------------------------------------------------
+
+tagline: "Computer Science PhD Candidate specializing in LLM bias and alignment"
+twitter:
+  username: # Add if you have one
+  card: summary_large_image
+logo: /assets/img/pb_pic.jpg # For structured data
+author:
+  name: Pietro Bernardelle
+  twitter: # Your Twitter handle
+social:
+  name: Pietro Bernardelle
+  links:
+    - https://www.linkedin.com/in/pietro-bernardelle
+    - https://github.com/PietroBernardelle
+    - https://scholar.google.com/citations?user=Sq0ZZhYAAAAJ
+    - https://orcid.org/0009-0003-3657-9229
+
+# -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
 
@@ -223,6 +243,32 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      sitemap:
+        priority: 0.7
+        changefreq: 'monthly'
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      sitemap:
+        priority: 0.6
+        changefreq: 'monthly'
+  - scope:
+      path: "_pages/about.md"
+    values:
+      sitemap:
+        priority: 1.0
+        changefreq: 'weekly'
+  - scope:
+      path: "_pages/publications.md"
+    values:
+      sitemap:
+        priority: 0.9
+        changefreq: 'weekly'
 
 sass:
   style: compressed
@@ -354,6 +400,7 @@ imagemagick:
     - 480
     - 800
     - 1400
+    - 2000
   input_directories:
     - assets/img/
   input_formats:
@@ -362,8 +409,10 @@ imagemagick:
     - ".png"
     - ".tiff"
     - ".gif"
+    - ".webp"
   output_formats:
     webp: "-quality 85"
+    jpg: "-quality 85"
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.

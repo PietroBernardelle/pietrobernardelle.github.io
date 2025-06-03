@@ -12,6 +12,17 @@
     see https://stackoverflow.com/a/75119417
   -->
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+  <!-- Add after existing meta tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Add canonical URL -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  <!-- Add alternate language tags if you plan multilingual content -->
+  <link rel="alternate" hreflang="en" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 {% endif %}
 
 {% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
