@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Candidate, The University of Queensland
+subtitle: PhD Student, The University of Queensland
 
 profile:
   align: right
@@ -27,17 +27,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey there! 
-
-I'm Pietro, a first year Computer Science PhD candidate at [The University of Queensland](https://www.uq.edu.au/) working on the intersection of large language models (LLMs) and social science. Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my research explores biases in current LLMs, designs bias mitigation approaches, and evaluates how these solutions enhance user experiences.
+I'm a first year Computer Science PhD Student at [The University of Queensland](https://www.uq.edu.au/) working on bias in large language models (LLMs). Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my current focus revolves around political bias in LLMs, exploring how persona-based prompting can manipulate model outputs and developing bias mitigation strategies to enhance LLMs fairness.
 
 My recent work include:
-- Developing a framework to reduce political bias in LLMs using Direct Preference Optimization (DPO) (<u>ongoing research</u>).
-- Developing a framework to measures LLM alignment effectiveness across various downstream applications (<u>ongoing research</u>).
-- A short paper on influencing political ideology in LLMs using synthetic persona ([The Web Conference 2025](https://www2025.thewebconf.org/)).
-- A short paper examining how data quality influences LLMs alignment thorugh Direct Preference Optimization (DPO) ([SIGIR-AP 2024](https://www.sigir-ap.org/sigir-ap-2024/)).
+- Developing a framework for reducing political bias in LLMs using DPO (<u>ongoing</u>).
+- Developing a framework for measuring LLMs perspective alignment effectiveness across downstream applications (<u>ongoing</u>).
+- Influencing political ideology in LLMs using synthetic personas ([The Web Conference 2025](https://dl.acm.org/doi/abs/10.1145/3701716.3715578)).
+- Examining how data quality influences LLMs alignment thorugh DPO ([SIGIR-AP 2024](https://dl.acm.org/doi/10.1145/3673791.3698411)).
 
-<!-- My academic journey started with a Bachelor of Science in Engineering of Computing Systems at Polytechnic University of Milan (PoliMi), followed by a Master of Science in Computer Science & Engineering with AI specialization. I was awarded a scholarship for a double degree program between The University of Queensland (UQ) and PoliMi, completing a Master of Engineering Science (Management) with a Software Engineering major at UQ earning a Dean's Commendation for Academic Excellence. -->
-
-I currently serve as a tutor for [DATA7201](https://programs-courses.uq.edu.au/course.html?course_code=DATA7201) (Data Analysis at Scale) at The University of Queensland.
-<!-- Previously, I worked as a Research Assistant and Research Intern at UQ and [CIRES](https://cires.org.au/), contributing to projects on Graph-Based Reinforcement Learning for Pair Selection under Professor Demartini's guidance. -->
+I currently also serve as a tutor for [DATA7201](https://programs-courses.uq.edu.au/course.html?course_code=DATA7201) (Data Analysis at Scale).
