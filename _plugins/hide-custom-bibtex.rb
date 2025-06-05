@@ -9,8 +9,6 @@ module Jekyll
 
       # Clean superscripts in author lists
       input = input.gsub(/^.*\bauthor\b *= *\{.*$\n/) { |line| line.gsub(/[*†‡§¶‖&^]/, '') }
-      # Remove the url field
-      input = input.gsub(/^\s*url\s*=\s*\{[^}]*\},?\s*$\n/m, '')
 
       return input
     end
