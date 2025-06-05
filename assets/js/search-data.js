@@ -398,8 +398,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-attended-the-web-conference-2025-sydney-we-won-the-best-paper-award-at-the-mm4sg-workshop-for-our-paper-the-impact-of-persona-based-political-perspectives-on-hateful-content-detection-we-presented-a-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas",
-          title: 'Attended The Web Conference 2025 (Sydney): We won the Best Paper Award at...',
+            },},{id: "news-started-a-doctorate-of-philosophy-phd-in-computer-science-at-the-university-of-queensland",
+          title: 'Started a Doctorate of Philosophy (PhD) in Computer Science at the University of...',
+          description: "",
+          section: "News",},{id: "news-attended-sigir-ap-2024-tokyo-grateful-to-be-awarded-a-student-travel-grant-and-complimentary-conference-registration-presented-a-short-paper-titled-optimizing-llms-with-direct-preferences-a-data-efficiency-perspective",
+          title: 'Attended SIGIR-AP 2024 (Tokyo): Grateful to be awarded a student travel grant and...',
+          description: "",
+          section: "News",},{id: "news-attended-the-web-conference-2025-sydney-won-best-paper-award-at-the-mm4sg-workshop-for-our-paper-titled-the-impact-of-persona-based-political-perspectives-on-hateful-content-detection-presented-a-short-paper-titled-mapping-and-influencing-the-political-ideology-of-large-language-models-using-synthetic-personas",
+          title: 'Attended The Web Conference 2025 (Sydney): Won Best Paper Award at the MM4SG...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
