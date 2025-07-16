@@ -26,11 +26,11 @@
     {
       "name": "The University of Queensland - School of EECS",
       "position": "Academic Tutor",
-      "url": "https://programs-courses.uq.edu.au/course.html?course_code=DATA7201",
+      // "url": "https://programs-courses.uq.edu.au/course.html?course_code=DATA7201",
       "startDate": "2025-02-01",
-      "endDate": "2025-06-01",
-      "summary": "Tutoring Data Analysis at Scale (DATA7201)"
-      // "highlights": ["Relativity"]
+      "endDate": "2025-11-01",
+      // "summary": "Tutor for:",
+      "highlights": ["Data Mining (INFS4203)", "Information Retrieval and Web Search (INFS7410)", "Data Analysis at Scale (DATA7201)"]
     },
     {
       "name": "The University of Queensland - School of EECS",
