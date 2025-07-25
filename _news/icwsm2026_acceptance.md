@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper titled "Spotting Persuasion: A Low-cost Model for Persuasion Detection in Political Ads on Social Media" has been accepted to [ICWSM 2026]() (Los Angeles).
+Our paper titled "Towards Detecting Persuasion on Social Media: From Model Development to Insights on Persuasion Strategies" has been accepted to [ICWSM 2026]() (Los Angeles).
