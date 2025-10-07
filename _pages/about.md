@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student, The University of Queensland
+subtitle: PhD Candidate, The University of Queensland
 
 profile:
   align: right
@@ -27,7 +27,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a first year Computer Science PhD Student at [The University of Queensland](https://www.uq.edu.au/) working on bias in large language models (LLMs). Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my current focus revolves around political bias in LLMs, exploring how persona-based prompting can manipulate model outputs and developing bias mitigation strategies to enhance LLMs fairness.
+I'm a second year Computer Science PhD Candidate at [The University of Queensland](https://www.uq.edu.au/) working on bias in large language models (LLMs). Under the supervision of [Professor Gianluca Demartini](https://www.gianlucademartini.net/), [Dr. Joel Mackenzie](https://jmmackenzie.io/) and [Dr. Kevin Roitero](https://kevinroitero.com/), my current focus revolves around political bias in LLMs, exploring how persona-based conditioning can manipulate model outputs and developing bias mitigation strategies to enhance LLMs fairness.
 
 My recent work include:
 - Developing a framework for reducing political bias in LLMs using DPO (<u>ongoing</u>).
