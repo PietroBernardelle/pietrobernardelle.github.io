@@ -1,0 +1,62 @@
+<div class="services">
+  {% if site.data.services != blank %}
+    {% assign services_size = site.data.services | size %}
+    <div
+      class="table-responsive"
+      {% if include.limit and page.services.scrollable and services_size > 3 %}
+        style="max-height: 60vw"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% assign services = site.data.services | reverse %}
+        {% if include.limit and page.services.limit %}
+          {% assign services_limit = page.services.limit %}
+        {% else %}
+          {% assign services_limit = services_size %}
+        {% endif %}
+        {% for service in services limit: services_limit %}
+          <tr>
+            <!-- Left column -->
+            <th scope="row" style="width: 25%">
+              {{ service.category }}
+            </th>
+
+            <!-- Right column -->
+            <td>
+              <ul>
+                {% for item in service.items %}
+                  <li style="margin-bottom: 0.8em; line-height: 1.4;">
+                    {% if item.link %}
+                      {{ item.name }}
+                      {% if item.acronym %}
+                        (<a href="{{ item.link }}" target="_blank">{{ item.acronym }}</a>)
+                      {% endif %}
+                    {% else %}
+                      {{ item.name }}
+                      {% if item.acronym %}
+                        ({{ item.acronym }})
+                      {% endif %}
+                    {% endif %}
+
+                    {% if item.years %}
+                      <span class="text-muted">, {{ item.years | join: ", " }}.</span>
+                    {% endif %}
+
+                    {% if item.note %}
+                      <br>
+                      <span class="text-muted" style="font-size: 0.9em; display: inline-block; margin-top: -0.2em; line-height: 1.1;">
+                        {{ item.note }}
+                      </span>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>No services listed yet...</p>
+  {% endif %}
+</div>

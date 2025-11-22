@@ -1,0 +1,18 @@
+- category: Reviewer for Journals
+  items:
+    - name: ACM Transactions on Intelligent Systems and Technology
+      acronym: TIST
+      link: https://dl.acm.org/journal/tist
+      years: [2025]
+      note: Special Issue on Risks and Unintended Harms of Generative AI Systems.
+    - name: Journal of Information Technology & Politics
+      link: https://www.tandfonline.com/journals/witp20
+      years: [2025]
+
+- category: Program Committee Member
+  items:
+    - name: European Conference on Information Retrieval short paper track
+      acronym: ECIR
+      link: https://ecir2026.eu/
+      years: [2026]    
+      note: Short paper track.

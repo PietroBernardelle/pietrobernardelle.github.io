@@ -871,6 +871,18 @@ footer.sticky-bottom {
   }
 }
 
+.publications img.preview {
+  background: #fff;          // white square
+  width: 125px;              // control size here
+  height: 125px;             // make it square
+  object-fit: contain;       // keep the image fully visible
+  display: block;            // avoid inline gaps
+  margin: 0 auto;            // center in the column
+  padding: 8px;
+  border: 1px solid var(--global-divider-color);
+}
+
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
@@ -1136,6 +1148,25 @@ nav[data-toggle="toc"] {
 .medium-zoom-image--opened {
   z-index: 999;
 }
+
+/* Fixed square frame for zoomed previews */
+/* Fixed square frame with smoother animation */
+.medium-zoom-image--opened.preview,
+.medium-zoom-image--opened[data-zoomable] {
+  width: 150px !important;
+  height: 150px !important;
+  max-width: min(90vw, 650px) !important;
+  max-height: min(90vh, 650px) !important;
+  object-fit: contain;
+  padding: 12px;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+
 
 #toc-sidebar {
   z-index: 1;
