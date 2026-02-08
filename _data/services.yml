@@ -1,5 +1,9 @@
 - category: Reviewer for Journals
   items:
+    - name: Information Processing & Management
+      acronym: IP&M
+      link: https://www.sciencedirect.com/journal/information-processing-and-management
+      years: [2026]
     - name: ACM Transactions on Intelligent Systems and Technology
       acronym: TIST
       link: https://dl.acm.org/journal/tist
@@ -11,6 +15,10 @@
 
 - category: Program Committee Member
   items:
+    - name: ACM Web Science Conference
+      acronym: WebSci
+      link: https://websci26.org/
+      years: [2026]    
     - name: European Conference on Information Retrieval short paper track
       acronym: ECIR
       link: https://ecir2026.eu/
