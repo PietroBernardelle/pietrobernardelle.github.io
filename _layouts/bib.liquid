@@ -199,15 +199,15 @@
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
         {% endif %}
       {% else %}
         {% capture pdf_path %}assets/pdf/{{ entry.key }}.pdf{% endcapture %}
         {% capture file_exists %}{% file_exists {{ pdf_path }} %}{% endcapture %}
         {% if file_exists == "true" %}
-          <a href="{{ pdf_path | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ pdf_path | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.arxiv %}
