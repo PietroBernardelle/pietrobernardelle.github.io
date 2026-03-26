@@ -20,6 +20,8 @@
   --global-footer-link-color: #{$white-color};
   --global-distill-app-color: #{$grey-color};
   --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-publication-year-color: rgba(0, 0, 0, 0.82);
+  --global-publication-year-divider-color: rgba(0, 0, 0, 0.55);
   --global-card-bg-color: #{$white-color};
   --global-highlight-color: #{$red-color-dark};
   --global-back-to-top-bg-color: rgba(
@@ -94,6 +96,8 @@ html[data-theme="dark"] {
   --global-footer-link-color: #{$black-color};
   --global-distill-app-color: #{$grey-color-light};
   --global-divider-color: #424246;
+  --global-publication-year-color: rgba(255, 255, 255, 0.9);
+  --global-publication-year-divider-color: rgba(255, 255, 255, 0.45);
   --global-card-bg-color: #{$grey-900};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($white-color, "red", $space: rgb)},
