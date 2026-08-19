@@ -225,6 +225,10 @@ ul.task-list input[type="checkbox"] {
       }
     }
   }
+
+  .about-content {
+    width: calc(70% - 1rem);
+  }
 }
 
 .post-description {
