@@ -6,9 +6,28 @@ type Theme = 'light' | 'dark';
 
 const themeChangeEvent = 'pb-theme-change';
 
+const applyTheme = (theme: Theme) => {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  window.dispatchEvent(new Event(themeChangeEvent));
+};
+
 const subscribe = (onStoreChange: () => void) => {
+  // Follow the device's setting as it changes, unless the visitor chose a theme.
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  const followSystem = () => {
+    let chosen = null;
+    try {
+      chosen = sessionStorage.getItem('pb-theme');
+    } catch {}
+    if (!chosen) applyTheme(system.matches ? 'dark' : 'light');
+  };
   window.addEventListener(themeChangeEvent, onStoreChange);
-  return () => window.removeEventListener(themeChangeEvent, onStoreChange);
+  system.addEventListener('change', followSystem);
+  return () => {
+    window.removeEventListener(themeChangeEvent, onStoreChange);
+    system.removeEventListener('change', followSystem);
+  };
 };
 
 const getTheme = (): Theme =>
@@ -21,10 +40,10 @@ export function ThemeToggle() {
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = nextTheme;
-    document.documentElement.style.colorScheme = nextTheme;
-    localStorage.setItem('pb-theme', nextTheme);
-    window.dispatchEvent(new Event(themeChangeEvent));
+    try {
+      sessionStorage.setItem('pb-theme', nextTheme);
+    } catch {}
+    applyTheme(nextTheme);
   };
 
   return (

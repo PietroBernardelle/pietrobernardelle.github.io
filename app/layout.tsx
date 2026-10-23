@@ -22,7 +22,10 @@ export const metadata: Metadata = {
 const themeScript = `
   (() => {
     try {
-      const saved = localStorage.getItem('pb-theme');
+      // Each visit starts from the device's light/dark setting; the toggle only
+      // overrides it for the rest of the visit (this tab).
+      localStorage.removeItem('pb-theme');
+      const saved = sessionStorage.getItem('pb-theme');
       const theme = saved === 'light' || saved === 'dark'
         ? saved
         : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');

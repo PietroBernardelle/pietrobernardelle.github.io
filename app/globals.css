@@ -481,8 +481,7 @@ button {
   scroll-margin-top: 112px;
 }
 
-.scroll-reveal[data-reveal-ready='true'],
-.scroll-reveal [data-reveal-ready='true'] {
+.scroll-reveal[data-reveal-ready='true'] {
   opacity: var(--reveal-opacity);
   filter: blur(var(--reveal-blur));
   transform: translateY(var(--reveal-rise));
@@ -2392,8 +2391,7 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-  .scroll-reveal[data-reveal-ready='true'],
-  .scroll-reveal [data-reveal-ready='true'] {
+  .scroll-reveal[data-reveal-ready='true'] {
     opacity: 1;
     filter: none;
     transform: none;
