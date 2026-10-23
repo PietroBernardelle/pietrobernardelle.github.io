@@ -42,7 +42,8 @@ export function PublicationLinks({
         ) : null}
         {links.map((link) => (
           <ExternalLink key={link.label} href={link.href}>
-            <span className="link-text">{link.label}</span> <span aria-hidden="true">↗</span>
+            <span className="link-text">{link.label}</span> {/* \uFE0E: the plain text arrow, never the emoji iOS may draw instead. */}
+            <span aria-hidden="true">{'↗\uFE0E'}</span>
           </ExternalLink>
         ))}
         {bibtex ? (
