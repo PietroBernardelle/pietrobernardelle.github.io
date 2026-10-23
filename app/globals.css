@@ -471,7 +471,7 @@ button {
   gap: 10px;
   color: var(--accent);
   font-weight: 650;
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, var(--background));
 }
 
 .availability-note {
@@ -1688,7 +1688,7 @@ button {
   color: var(--accent);
   font-size: 0.8125rem;
   font-weight: 600;
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, var(--background));
 }
 
 @media (hover: hover) {
