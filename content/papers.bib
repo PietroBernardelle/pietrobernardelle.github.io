@@ -1,0 +1,218 @@
+% Publications for pietrobernardelle.github.io
+%
+% To add a paper: paste its BibTeX entry below (newest first) and add the site fields.
+%   venue_short = {CIKM 2026},              REQUIRED  short venue shown above the title
+%   summary     = {One plain sentence.},    REQUIRED  shown under the authors
+%   selected    = {true},                   optional  show on the homepage (first 3 are used)
+%   award       = {Best Paper Award},       optional
+%   status      = {preprint},               optional  mark a paper as a preprint (default: published)
+%   doi         = {10.1145/...},            optional  "DOI" link; journals also show volume, number, pages
+%   url         = {https://...},            optional  "Paper" link when there is no DOI
+%   arXiv       = {2501.01234},             optional  "arXiv" link (free version)
+%   code        = {https://github.com/...}, optional  "Code" link
+% Keep each site field on a single line. The BibTeX people copy from the site omits them.
+% The build stops with a clear error if an entry is missing venue_short or summary.
+
+@article{bernardelle2027political,
+  venue_short = {IP\&M 2027},
+  summary = {Across seven open-weight models and 200,000 synthetic personas, shows that persona conditioning and explicit ideological cues shift models' political-compass positions, with larger models covering a broader ideological range.},
+  selected = {true},
+  author = {Bernardelle, Pietro and Civelli, Stefano and Fr\"{o}hling, Leon and Lunardi, Riccardo and Roitero, Kevin and Demartini, Gianluca},
+  title = {Political Ideology Shifts in Large Language Models},
+  journal = {Information Processing \& Management},
+  publisher = {Elsevier},
+  volume = {64},
+  number = {2},
+  pages = {105124},
+  month = feb,
+  year = {2027},
+  issn = {0306-4573},
+  doi = {10.1016/j.ipm.2026.105124},
+  arXiv = {2508.16013},
+}
+
+@misc{paganelli2026crosslingual,
+  venue_short = {arXiv 2026},
+  status = {preprint},
+  summary = {Tests whether pre-generation success probes stay reliable across ten languages, finding that English-trained probes keep their ability to rank likely successes but lose calibration, which pooled multilingual training improves.},
+  title = {Cross-lingual Calibration of Pre-Generation Success Probes for Multilingual LLM Routing},
+  author = {Paganelli, Andrea and Civelli, Stefano and Bernardelle, Pietro and Demartini, Gianluca},
+  howpublished = {arXiv preprint arXiv:2610.06216},
+  arXiv = {2610.06216},
+  year = {2026}
+}
+
+@inproceedings{bernardelle2026internalsrelevance,
+  venue_short = {CIKM 2026},
+  summary = {Shows that query–document relevance is linearly decodable from LLM activations as a depth-dependent signal, and tests how well it carries across languages.},
+  author = {Bernardelle, Pietro and Mohtadi, Samaneh and Civelli, Stefano and Mackenzie, Joel and Demartini, Gianluca},
+  title = {LLMs Encode Relevance as a Layer-Wise Cross-Lingual Signal},
+  booktitle = {Proceedings of the 35th International ACM Conference on Knowledge and Information Management (CIKM)},
+  selected={true},
+  arXiv={2607.15555},
+  year = {2026}
+}
+
+@inproceedings{mohtadi2026personarelevance,
+  venue_short = {CIKM 2026},
+  summary = {Uses persona conditioning to probe LLM relevance assessors, finding that judgments shift in strictness and emphasis rather than flipping, and that smaller models amplify the resulting instability in system rankings.},
+  author = {Mohtadi, Samaneh and Bernardelle, Pietro and Mackenzie, Joel and Demartini, Gianluca},
+  title = {Persona Conditioning as an Assessor-Sensitivity Probe for LLM-Based IR Evaluation},
+  booktitle = {Proceedings of the 35th International ACM Conference on Knowledge and Information Management (CIKM)},
+  selected={true},
+  arXiv={2608.10385},
+  year = {2026}
+}
+
+@inproceedings{bernardelle2026contextfactchecking,
+  venue_short = {GenAI4SG @ CIKM 2026},
+  summary = {Shows that LLM fact-verification accuracy declines as context length grows and depends on where the evidence sits, with evidence near the start or end of the prompt working best.},
+  title = {Context Shapes LLMs Retrieval-Augmented Fact-Checking Effectiveness},
+  author = {Bernardelle, Pietro and Civelli, Stefano and Roitero, Kevin and Demartini, Gianluca},
+  booktitle = {Proceedings of the 1st Workshop on Generative AI for Social Good and Vulnerable Populations (GenAI4SG) at CIKM 2026},
+  address = {Rome, Italy},
+  arXiv = {2602.14044},
+  year = {2026}
+}
+
+@inproceedings{civelli-etal-2026-shared,
+  venue_short = {ACL 2026 · Short Paper},
+  summary = {Shows that language models first encode problem difficulty in a shared, language-agnostic space before later representations become language-specific.},
+  title = "A Shared Geometry of Difficulty in Multilingual Language Models",
+  author = "Civelli, Stefano  and
+  Bernardelle, Pietro  and
+  Brunello, Nicol{\`o}  and
+  Demartini, Gianluca",
+  editor = "Liakata, Maria  and
+  Moreira, Viviane P.  and
+  Zhang, Jiajun  and
+  Jurgens, David",
+  booktitle = "Proceedings of the 64th Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 2: Short Papers)",
+  month = jul,
+  year = "2026",
+  address = "San Diego, California, United States",
+  publisher = "Association for Computational Linguistics",
+  url = "https://aclanthology.org/2026.acl-short.66/",
+  doi = "10.18653/v1/2026.acl-short.66",
+  pages = "796--807",
+  ISBN = "979-8-89176-391-3",
+  selected={true},
+  arXiv={2601.12731},
+}
+
+@article{civelli2025ideological,
+  venue_short = {ACM TIST 2026 · Special Issue on Risks and Unintended Harms of Generative AI Systems},
+  summary = {Finds that ideological personas can subtly shift harmful-content judgments even when headline classification accuracy remains largely unchanged.},
+  author = {Civelli, Stefano and Bernardelle, Pietro and Pratama, Nardiena A. and Demartini, Gianluca},
+  title = {Ideology-Based LLMs for Content Moderation},
+  journal = {ACM Transactions on Intelligent Systems and Technology},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  month = apr,
+  year = {2026},
+  issn = {2157-6904},
+  doi = {10.1145/3810946},
+  arXiv = {2510.25805},
+}
+
+@inproceedings{bernardelle2026subdata,
+  venue_short = {NLPerspectives @ LREC 2026},
+  summary = {Introduces SubData, an open-source Python library that standardises heterogeneous datasets so LLM perspective alignment can be evaluated on downstream tasks such as hate-speech detection.},
+  title = "{S}ub{D}ata: Bridging Heterogeneous Datasets to Enable Theory-Driven Evaluation of Political and Demographic Perspectives in {LLM}s",
+  author = "Bernardelle, Pietro  and
+  Froehling, Leon  and
+  Civelli, Stefano  and
+  Demartini, Gianluca",
+  editor = "Dudy, Shiran  and
+  Abercrombie, Gavin  and
+  Basile, Valerio  and
+  Leonardelli, Elisa  and
+  Frenda, Simona",
+  booktitle = "Proceedings of the Fifth Edition of {NLP}erspectives",
+  month = may,
+  year = "2026",
+  address = "Palma, Mallorca (Spain)",
+  publisher = "ELRA Language Resources Association (ELRA)",
+  url = "https://aclanthology.org/2026.nlperspectives-1.9/",
+  doi = "10.63317/2uppkbro3uvq",
+  pages = "84--97",
+  arXiv={2412.16783},
+}
+
+@article{civelli2025politicaladv2022,
+  venue_short = {ICWSM 2026},
+  summary = {Analyses Meta advertising during Australia's 2022 federal election to reveal distinct spending, targeting, and identity-based persuasion strategies.},
+  author = {Civelli, Stefano and Bernardelle, Pietro and Mols, Frank and Demartini, Gianluca},
+  title = {Political Advertising on Facebook During the 2022 Australian Federal Election: A Social Identity Perspective},
+  journal = {Proceedings of the International AAAI Conference on Web and Social Media},
+  publisher = {Association for the Advancement of Artificial Intelligence},
+  volume = {20},
+  number = {1},
+  pages = {563--577},
+  month = may,
+  year = {2026},
+  doi = {10.1609/icwsm.v20i1.42654},
+  arXiv = {2511.12426},
+}
+
+@article{meguellati2026spotting,
+  venue_short = {ICWSM 2026},
+  summary = {Introduces a lightweight persuasion detector that reaches strong benchmark performance and exposes persuasive strategies in real political advertisements.},
+  author = {Meguellati, Elyas and Civelli, Stefano and Bernardelle, Pietro and Sadiq, Shazia and King, Irwin and Demartini, Gianluca},
+  title = {Towards Detecting Persuasion on Social Media: From Model Development to Insights on Persuasion Strategies},
+  journal = {Proceedings of the International AAAI Conference on Web and Social Media},
+  publisher = {Association for the Advancement of Artificial Intelligence},
+  volume = {20},
+  number = {1},
+  pages = {1587--1608},
+  month = may,
+  year = {2026},
+  doi = {10.1609/icwsm.v20i1.42714},
+  arXiv = {2503.13844},
+}
+
+@inproceedings{bernardelle2025mapping,
+  venue_short = {TheWebConf 2025 · Short Paper},
+  summary = {Maps political orientations induced by synthetic personas and finds an asymmetric ability to steer models toward opposing ideological positions.},
+  author = {Bernardelle, Pietro and Fr\"{o}hling, Leon and Civelli, Stefano and Lunardi, Riccardo and Roitero, Kevin and Demartini, Gianluca},
+  title = {Mapping and Influencing the Political Ideology of Large Language Models using Synthetic Personas},
+  booktitle = {Companion Proceedings of the ACM on Web Conference 2025},
+  publisher = {Association for Computing Machinery},
+  address = {Sydney NSW, Australia},
+  pages = {864--867},
+  month = may,
+  year = {2025},
+  doi = {10.1145/3701716.3715578},
+  arXiv = {2412.14843},
+}
+
+@inproceedings{civelli2025impact,
+  venue_short = {TheWebConf 2025 · MM4SG Workshop},
+  summary = {Shows that persona political positioning has little correlation with multimodal hateful-meme classifications, even under stronger ideological prompting.},
+  award = {Best Paper Award},
+  author = {Civelli, Stefano and Bernardelle, Pietro and Demartini, Gianluca},
+  title = {The Impact of Persona-based Political Perspectives on Hateful Content Detection},
+  booktitle = {Companion Proceedings of the ACM on Web Conference 2025},
+  publisher = {Association for Computing Machinery},
+  address = {Sydney NSW, Australia},
+  pages = {1963--1968},
+  month = may,
+  year = {2025},
+  doi = {10.1145/3701716.3718383},
+  arXiv = {2502.00385},
+}
+
+@inproceedings{bernardelle2024optimizing,
+  venue_short = {SIGIR-AP 2024 · Short Paper},
+  summary = {Studies how the amount and type of preference data affect Direct Preference Optimization, mapping DPO's improvement curve in data-constrained settings.},
+  author = {Bernardelle, Pietro and Demartini, Gianluca},
+  title = {Optimizing LLMs with Direct Preferences: A Data Efficiency Perspective},
+  booktitle = {Proceedings of the 2024 Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region},
+  publisher = {Association for Computing Machinery},
+  address = {Tokyo, Japan},
+  pages = {236--240},
+  month = dec,
+  year = {2024},
+  doi = {10.1145/3673791.3698411},
+  arXiv = {2410.16586},
+}
