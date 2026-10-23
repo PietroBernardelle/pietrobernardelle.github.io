@@ -50,6 +50,7 @@
 }
 
 html {
+  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 }
 
@@ -113,9 +114,11 @@ a {
   text-underline-offset: 0.22em;
 }
 
-a:hover {
-  color: var(--accent);
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  a:hover {
+    color: var(--accent);
+    text-decoration-color: currentColor;
+  }
 }
 
 a,
@@ -274,9 +277,11 @@ button {
   transition: transform 150ms var(--ease-out);
 }
 
-.desktop-nav a:hover,
-.desktop-nav a[aria-current='page'] {
-  color: var(--foreground);
+@media (hover: hover) {
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current='page'] {
+    color: var(--foreground);
+  }
 }
 
 .desktop-nav a[aria-current='page']::after {
@@ -307,8 +312,10 @@ button {
   color: var(--muted);
 }
 
-.theme-toggle:hover {
-  color: var(--foreground);
+@media (hover: hover) {
+  .theme-toggle:hover {
+    color: var(--foreground);
+  }
 }
 
 .theme-toggle svg {
@@ -436,14 +443,18 @@ button {
   text-decoration: none;
 }
 
-.primary-action:hover {
-  background: var(--accent);
-  color: var(--accent-contrast);
+@media (hover: hover) {
+  .primary-action:hover {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
 }
 
-.primary-action:hover span,
-.arrow-link:hover span[aria-hidden='true'] {
-  transform: translateX(3px);
+@media (hover: hover) {
+  .primary-action:hover span,
+  .arrow-link:hover span[aria-hidden='true'] {
+    transform: translateX(3px);
+  }
 }
 
 .primary-action span,
@@ -553,8 +564,10 @@ button {
   text-decoration-color: transparent;
 }
 
-.publication-home-list h3 a:hover {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .publication-home-list h3 a:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 .publication-home-list .publication-meta {
@@ -575,8 +588,10 @@ button {
   text-decoration-color: transparent;
 }
 
-.publication-home-list .inline-note-link:hover {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .publication-home-list .inline-note-link:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 .teaching-overview {
@@ -764,8 +779,10 @@ button {
   text-decoration-color: transparent;
 }
 
-.post-list h3 a:hover {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .post-list h3 a:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 .latest-notes-section .post-list {
@@ -816,9 +833,11 @@ button {
   transition: width 150ms var(--ease-out), background-color 150ms var(--ease-out);
 }
 
-.section-rail a:hover,
-.section-rail a[aria-current='location'] {
-  color: var(--foreground);
+@media (hover: hover) {
+  .section-rail a:hover,
+  .section-rail a[aria-current='location'] {
+    color: var(--foreground);
+  }
 }
 
 .section-rail a[aria-current='location'] > span {
@@ -1062,9 +1081,11 @@ button {
   text-decoration: none;
 }
 
-.publication-note-link:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+@media (hover: hover) {
+  .publication-note-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 }
 
 .publication-note-link span {
@@ -1121,8 +1142,10 @@ button {
   text-transform: none;
 }
 
-.writing-topic-index > a:hover h3 {
-  color: var(--accent);
+@media (hover: hover) {
+  .writing-topic-index > a:hover h3 {
+    color: var(--accent);
+  }
 }
 
 .topic-archive {
@@ -1668,10 +1691,12 @@ button {
   text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
-.publication-links > a:hover,
-.bibtex-toggle:hover {
-  color: var(--accent-hover);
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .publication-links > a:hover,
+  .bibtex-toggle:hover {
+    color: var(--accent-hover);
+    text-decoration-color: currentColor;
+  }
 }
 
 .bibtex-toggle {
@@ -1736,8 +1761,10 @@ button {
   height: 16px;
 }
 
-.copy-button:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .copy-button:hover {
+    color: var(--accent);
+  }
 }
 
 /* Sits to the left of the icon, over the (short) first BibTeX line. */
@@ -1807,8 +1834,10 @@ button {
   text-underline-offset: 0.22em;
 }
 
-.elsewhere-links a:hover .link-label {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .elsewhere-links a:hover .link-label {
+    text-decoration-color: currentColor;
+  }
 }
 
 /* A text link led by one of the profile icons (e.g. Scholar on the Research page);
@@ -1827,8 +1856,10 @@ button {
   text-underline-offset: 0.22em;
 }
 
-.icon-link:hover .link-label {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .icon-link:hover .link-label {
+    text-decoration-color: currentColor;
+  }
 }
 
 .link-icon {
@@ -2056,24 +2087,30 @@ button {
   transition: opacity 150ms var(--ease-out);
 }
 
-.section-rail .rail-tick:hover,
-.section-rail .rail-tick[data-active='true'] {
-  color: var(--foreground);
+@media (hover: hover) {
+  .section-rail .rail-tick:hover,
+  .section-rail .rail-tick[data-active='true'] {
+    color: var(--foreground);
+  }
 }
 
-.section-rail .rail-tick:hover > .tick-label,
-.section-rail .rail-tick[data-active='true'] > .tick-label {
-  opacity: 1;
+@media (hover: hover) {
+  .section-rail .rail-tick:hover > .tick-label,
+  .section-rail .rail-tick[data-active='true'] > .tick-label {
+    opacity: 1;
+  }
 }
 
 .section-rail .rail-tick[data-reached='true'] > .tick-mark {
   background: var(--accent);
 }
 
-.section-rail .rail-tick:hover > .tick-mark,
-.section-rail .rail-tick[data-active='true'] > .tick-mark {
-  width: 12px;
-  background: var(--accent);
+@media (hover: hover) {
+  .section-rail .rail-tick:hover > .tick-mark,
+  .section-rail .rail-tick[data-active='true'] > .tick-mark {
+    width: 12px;
+    background: var(--accent);
+  }
 }
 
 .section-rail a.is-active-group {
@@ -2150,8 +2187,10 @@ button {
   text-decoration: none;
 }
 
-.back-link:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .back-link:hover {
+    color: var(--accent);
+  }
 }
 
 .series-pitch {
@@ -2188,8 +2227,10 @@ button {
   text-decoration-color: transparent;
 }
 
-.series-parts h3 a:hover {
-  text-decoration-color: currentColor;
+@media (hover: hover) {
+  .series-parts h3 a:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 .series-parts li > div > p {
@@ -2265,8 +2306,10 @@ button {
   text-decoration: none;
 }
 
-.series-pager a:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .series-pager a:hover {
+    color: var(--accent);
+  }
 }
 
 .series-pager-next {
@@ -2311,13 +2354,17 @@ button {
   text-decoration: none;
 }
 
-.series-tile:hover .series-tile-title {
-  color: var(--accent);
+@media (hover: hover) {
+  .series-tile:hover .series-tile-title {
+    color: var(--accent);
+  }
 }
 
-.series-tile:hover .topic-link span {
-  display: inline-block;
-  transform: translateX(3px);
+@media (hover: hover) {
+  .series-tile:hover .topic-link span {
+    display: inline-block;
+    transform: translateX(3px);
+  }
 }
 
 .series-tile .topic-link span {
@@ -2584,13 +2631,17 @@ button {
   color: var(--accent-contrast);
 }
 
-.note-button:hover,
-.note-toggle button:hover {
-  color: var(--accent);
+@media (hover: hover) {
+  .note-button:hover,
+  .note-toggle button:hover {
+    color: var(--accent);
+  }
 }
 
-.note-toggle button[aria-pressed='true']:hover {
-  color: var(--accent-contrast);
+@media (hover: hover) {
+  .note-toggle button[aria-pressed='true']:hover {
+    color: var(--accent-contrast);
+  }
 }
 
 .note-check {
@@ -2884,9 +2935,11 @@ button {
   font-size: 1.25rem;
 }
 
-.timeline-arrow:hover:not(:disabled) {
-  border-color: var(--accent);
-  color: var(--accent);
+@media (hover: hover) {
+  .timeline-arrow:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 }
 
 .timeline-arrow:disabled {
@@ -3026,9 +3079,11 @@ button {
   font-size: 0.95rem;
 }
 
-.note-replay:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+@media (hover: hover) {
+  .note-replay:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 }
 
 .index-table > .note-button {
@@ -3100,4 +3155,20 @@ a > .link-text,
 /* Back links ("← All series") were never underlined; keep it that way. */
 .back-link > .link-text {
   text-decoration-line: none;
+}
+
+/* External-link arrows: the text glyph on wide screens, a drawn one on phones. */
+.arrow-drawn {
+  display: none;
+}
+
+@media (max-width: 50rem) {
+  .arrow-glyph {
+    display: none;
+  }
+
+  .arrow-drawn {
+    display: inline-block;
+    vertical-align: 0.02em;
+  }
 }
