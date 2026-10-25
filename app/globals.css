@@ -4,6 +4,9 @@
   --foreground: #2a2422;
   --muted: #6b5f5a;
   --accent: #9e3d37;
+  --accent-underline: #d2a8a3;
+  --accent-wash: rgba(158, 61, 55, 0.14);
+  --accent-tint: #e2c9c3;
   --accent-hover: #7f2f2a;
   --accent-contrast: #ffffff;
   --border: #ddd3cc;
@@ -21,6 +24,9 @@
   --foreground: #f2ebe8;
   --muted: #bcb0ab;
   --accent: #e3a29d;
+  --accent-underline: #684c49;
+  --accent-wash: rgba(227, 162, 157, 0.14);
+  --accent-tint: #433230;
   --accent-hover: #efbfbb;
   --accent-contrast: #1e1413;
   --border: #3a302e;
@@ -36,6 +42,9 @@
     --foreground: #f2ebe8;
     --muted: #bcb0ab;
     --accent: #e3a29d;
+    --accent-underline: #684c49;
+    --accent-wash: rgba(227, 162, 157, 0.14);
+    --accent-tint: #433230;
     --accent-hover: #efbfbb;
     --accent-contrast: #1e1413;
     --border: #3a302e;
@@ -471,7 +480,7 @@ button {
   gap: 10px;
   color: var(--accent);
   font-weight: 650;
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, var(--background));
+  text-decoration-color: var(--accent-underline);
 }
 
 .availability-note {
@@ -1688,7 +1697,7 @@ button {
   color: var(--accent);
   font-size: 0.8125rem;
   font-weight: 600;
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, var(--background));
+  text-decoration-color: var(--accent-underline);
 }
 
 @media (hover: hover) {
@@ -2671,7 +2680,7 @@ button {
 .note-bar {
   position: absolute;
   inset: 0 auto 0 0;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  background: var(--accent-wash);
   transition: width 400ms var(--ease-out);
 }
 
@@ -2872,7 +2881,7 @@ button {
 }
 
 .graph-node circle {
-  fill: color-mix(in srgb, var(--accent) 22%, var(--background));
+  fill: var(--accent-tint);
   stroke: var(--accent);
   transition: r 500ms var(--ease-out);
 }
