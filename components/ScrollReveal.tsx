@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';
 
-// A section that comes into focus as it scrolls up the screen: it starts faded,
-// blurred and slightly lowered, and sharpens over about a third of the screen; it
-// fades again as it leaves the top. Used on the homepage, Research, and Services.
+// A section that comes into view as it scrolls up the screen: it starts faded and
+// slightly lowered, and settles over about a third of the screen; it fades again as
+// it leaves the top. Used on the homepage, Research, and Services.
 export function ScrollReveal({
   children,
   className,
@@ -33,7 +33,6 @@ export function ScrollReveal({
       const easedIn = entering * entering * (3 - 2 * entering);
 
       element.style.setProperty('--reveal-opacity', eased.toFixed(3));
-      element.style.setProperty('--reveal-blur', `${((1 - eased) * 6).toFixed(2)}px`);
       element.style.setProperty('--reveal-rise', `${((1 - easedIn) * 20).toFixed(2)}px`);
       element.dataset.revealReady = 'true';
       frame = 0;

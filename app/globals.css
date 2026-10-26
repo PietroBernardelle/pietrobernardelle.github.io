@@ -208,7 +208,6 @@ button {
   z-index: 50;
   border-bottom: 1px solid transparent;
   background: var(--header-background);
-  backdrop-filter: blur(12px);
 }
 
 /* The divider grows from the centre outwards once the page scrolls. */
@@ -503,7 +502,6 @@ button {
 
 .scroll-reveal[data-reveal-ready='true'] {
   opacity: var(--reveal-opacity);
-  filter: blur(var(--reveal-blur));
   transform: translateY(var(--reveal-rise));
 }
 

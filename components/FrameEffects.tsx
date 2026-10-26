@@ -11,7 +11,9 @@ export function FrameEffects() {
     const frame = document.querySelector<HTMLElement>('.page-frame, .home-frame');
     const heading = frame?.querySelector<HTMLElement>('.page-heading, .home-hero');
     if (!frame || !heading) return;
-    const facts = frame.querySelector<HTMLElement>('.facts-rail, .home-right-rail .profile-rail');
+    // The right column's copy, not the one PageFrame repeats under the heading for phones
+    // (hidden on wide screens, and earlier in the page).
+    const facts = frame.querySelector<HTMLElement>('.page-right-rail .facts-rail, .home-right-rail .profile-rail');
     // Inner pages stretch the facts list; the homepage profile grows its last block.
     const factsList = facts?.classList.contains('facts-rail') ? facts.querySelector<HTMLElement>(':scope > dl') : null;
     const lastBlock = facts && !factsList ? (facts.lastElementChild as HTMLElement | null) : null;

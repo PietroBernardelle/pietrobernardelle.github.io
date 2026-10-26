@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PageFrame } from '@/components/PageFrame';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { SeriesParts, seriesPartId } from '@/components/SeriesParts';
 import { getSeries } from '@/lib/blog';
 import { pageMetadata } from '@/lib/seo';
@@ -41,13 +42,13 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
       ]}
       rail={s.parts.length ? [{ id: 'parts', label: listLabel, items: s.parts.map((part) => ({ id: seriesPartId(part.part), label: `Part ${part.part}` })) }] : []}
     >
-      <section id="parts" className="content-section anchor-section" aria-labelledby="parts-heading">
+      <ScrollReveal id="parts" className="content-section anchor-section" aria-labelledby="parts-heading">
         <div className="section-heading-row">
           <h2 id="parts-heading">{listLabel}</h2>
           <span>{String(s.parts.length || s.published).padStart(2, '0')}</span>
         </div>
         <SeriesParts series={s} />
-      </section>
+      </ScrollReveal>
 
       <nav className="article-return" aria-label="Series navigation">
         <Link className="arrow-link" href="/blog/">
