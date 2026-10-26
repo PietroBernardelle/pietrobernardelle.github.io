@@ -8,7 +8,6 @@ next-env.d.ts
 .env.*
 
 # Local drafts
-/content/blog/what-makes-a-document-relevant.md
 /content/blog/from-text-to-an-index.md
 /content/blog/from-boolean-search-to-bm25.md
 /content/blog/how-do-we-know-search-works.md

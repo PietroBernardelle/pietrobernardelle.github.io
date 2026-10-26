@@ -1,7 +1,7 @@
 ---
 title: "From asking a question to search agents"
 excerpt: "Why we look for information, how we express a need, and the ideas that connect a question to useful evidence."
-date: 2026-10-26
+date: 2026-10-18
 tags: [information retrieval, roadmap]
 series: information-retrieval
 part: 1
