@@ -52,7 +52,7 @@ export default function Blog() {
               <span className="series-tile-title">{s.title}</span>
               <span className="series-tile-pitch">{s.pitch}</span>
               <span className="topic-link">
-                {`${s.published} written`}{' '}
+                {s.published ? `${s.published} published` : 'Work in progress'}{' '}
                 <span aria-hidden="true">→</span>
               </span>
             </Link>

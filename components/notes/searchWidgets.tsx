@@ -1,69 +1,15 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ReplayButton, STOP, reducedMotion, stem, tokens, useInView, usePlayOnce } from './kit';
+import { BASICS_WIDGETS } from './irBasics';
+import { CLASSIC_WIDGETS } from './irClassic';
+import { NEURAL_WIDGETS } from './irNeural';
+import { LLM_WIDGETS } from './irLlm';
 
 // Interactive figures for the "Search and retrieval" roadmap note. Each one is placed in
-// the Markdown with a fenced block:  ```widget\n<name>\n```  (see NoteWidget).
-
-const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/** True once the element has scrolled into view (animations start there, not on load). */
-function useInView<T extends Element>(): [RefObject<T | null>, boolean] {
-  const ref = useRef<T>(null);
-  const [seen, setSeen] = useState(false);
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setSeen(true);
-        observer.disconnect();
-      }
-    }, { threshold: 0.35 });
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-  return [ref, seen];
-}
-
-/**
- * Steps 0 → last once the figure is in view, one every `interval` ms, then stops.
- * `replay()` starts again from 0. With reduced motion it jumps to the last step.
- */
-function usePlayOnce(last: number, interval: number, inView: boolean) {
-  const [step, setStep] = useState(0);
-  const [run, setRun] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    if (reducedMotion()) {
-      const id = window.setTimeout(() => setStep(last), 0);
-      return () => window.clearTimeout(id);
-    }
-    const id = window.setInterval(() => {
-      setStep((value) => {
-        if (value >= last) {
-          window.clearInterval(id);
-          return value;
-        }
-        return value + 1;
-      });
-    }, interval);
-    return () => window.clearInterval(id);
-  }, [inView, last, interval, run]);
-  const replay = () => {
-    setStep(0);
-    setRun((value) => value + 1);
-  };
-  return { step, replay, done: step >= last };
-}
-
-function ReplayButton({ onClick, label = 'Replay' }: { onClick: () => void; label?: string }) {
-  return (
-    <button type="button" className="note-replay" onClick={onClick} aria-label={label} title={label}>
-      <span aria-hidden="true">↺</span> {label}
-    </button>
-  );
-}
+// the Markdown with a fenced block:  ```widget\n<name>\n```  (see NoteWidget). Figures for
+// the later parts of the series live in irBasics, irClassic, irNeural and irLlm.
 
 /* ---------- 1. Need → query → documents ---------- */
 
@@ -113,16 +59,6 @@ const DOCS = [
   'How to treat a sprained wrist at home.',
   'The history of leather boots in fashion.',
 ];
-const STOP = new Set(['a', 'an', 'and', 'the', 'to', 'of', 'in', 'at', 'how', 'for', 'is', 'on', 'my', 'i', 'what']);
-// A deliberately tiny stemmer: enough to join "treating"/"treat" and "sprained"/"sprain".
-const stem = (word: string) => word.replace(/(ing|ed|s)$/, '');
-const tokens = (text: string, stemming: boolean) =>
-  text
-    .toLowerCase()
-    .split(/[^a-z]+/)
-    .filter((word) => word && !STOP.has(word))
-    .map((word) => (stemming ? stem(word) : word));
-
 type Model = 'boolean' | 'tfidf' | 'bm25';
 
 export function WordMatching() {
@@ -286,7 +222,7 @@ export function InvertedIndex() {
       <figcaption>
         Read every document once and record, for each word, where it appears. A query then only touches the lists of its
         own words. Words are shortened to a common stem (“sprained” → “sprain”), so variants share a list. A count lets
-        BM25 score without rereading the document; positions let you search for an exact phrase such as “sprained
+        a word-based ranker score without rereading the document; positions let you search for an exact phrase such as “sprained
         ankle”, at the cost of a bigger index.
       </figcaption>
     </figure>
@@ -535,6 +471,72 @@ export function SearchTimeline() {
   );
 }
 
+/* ---------- 8. Series map: the stages of the series and their parts ---------- */
+
+const STAGES = [
+  {
+    label: 'What counts as a good answer?',
+    problem: 'The system sees a few words, not the person’s need.',
+    parts: [[2, 'What makes a document relevant?', 'what-makes-a-document-relevant']],
+  },
+  {
+    label: 'Matching words, fast',
+    problem: 'Millions of documents, and an answer expected in a blink.',
+    parts: [[3, 'From raw text to an index', 'from-text-to-an-index'], [4, 'From Boolean search to BM25', 'from-boolean-search-to-bm25']],
+  },
+  {
+    label: 'Knowing what works',
+    problem: 'Two rankings disagree. Which is better?',
+    parts: [[5, 'How do we know a search system works?', 'how-do-we-know-search-works']],
+  },
+  {
+    label: 'More clues than words',
+    problem: 'People use different words, and the web adds links, spam and clicks.',
+    parts: [[6, 'Improving the query', 'improving-the-query'], [7, 'Links, authority and diversity', 'search-on-the-web'], [8, 'Learning to rank, and learning from clicks', 'learning-to-rank']],
+  },
+  {
+    label: 'From words to meaning',
+    problem: '“Rolled ankle” and “sprained ankle” should match.',
+    parts: [[9, 'Embeddings and transformers', 'from-words-to-meaning'], [10, 'Reranking with BERT', 'reranking-with-bert'], [11, 'Dense retrieval', 'dense-retrieval'], [12, 'Learned sparse retrieval', 'learned-sparse-retrieval']],
+  },
+  {
+    label: 'Language models join in',
+    problem: 'Models that can read can also rank, judge, answer and search.',
+    parts: [[13, 'Asking a language model to rank', 'llms-as-rankers'], [14, 'Can a language model judge relevance?', 'llms-as-relevance-assessors'], [15, 'Retrieval-augmented generation', 'rag-from-the-retrieval-side'], [16, 'Search agents', 'search-agents']],
+  },
+] as const;
+
+export function SeriesMap({ linkTargets = {} }: { linkTargets?: Record<string, string> }) {
+  const [selected, setSelected] = useState(0);
+  const stage = STAGES[selected];
+  return (
+    <figure className="note-figure series-map">
+      <ol className="series-map-stages" aria-label="Stages of the series">
+        {STAGES.map((item, index) => (
+          <li key={item.label}>
+            <button type="button" aria-pressed={selected === index} onClick={() => setSelected(index)}>
+              <span className="note-tag">Stage {index + 1}</span>
+              <span>{item.label}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <div className="series-map-detail" aria-live="polite" aria-atomic="true">
+        <p className="note-lead">{stage.problem}</p>
+        <ul>
+          {stage.parts.map(([part, title, slug]) => (
+            <li key={part}>
+              <span className="note-tag">Part {part}</span>{' '}
+              <a href={linkTargets[`/blog/${slug}/`] ?? `/blog/${slug}/`}>{title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <figcaption>Choose a stage to explore its question, then follow a part to read the post.</figcaption>
+    </figure>
+  );
+}
+
 const WIDGETS: Record<string, () => React.JSX.Element> = {
   'need-to-match': NeedToMatch,
   'word-matching': WordMatching,
@@ -543,10 +545,15 @@ const WIDGETS: Record<string, () => React.JSX.Element> = {
   'words-vs-meaning': WordsVsMeaning,
   'rag-and-agents': RagAndAgents,
   'search-timeline': SearchTimeline,
+  ...BASICS_WIDGETS,
+  ...CLASSIC_WIDGETS,
+  ...NEURAL_WIDGETS,
+  ...LLM_WIDGETS,
 };
 
 /** Renders the figure named in a ```widget block, or nothing for an unknown name. */
-export function NoteWidget({ name }: { name: string }) {
+export function NoteWidget({ name, linkTargets }: { name: string; linkTargets?: Record<string, string> }) {
+  if (name.trim() === 'series-map') return <SeriesMap linkTargets={linkTargets} />;
   const Widget = WIDGETS[name.trim()];
   return Widget ? <Widget /> : null;
 }

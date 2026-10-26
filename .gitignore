@@ -8,7 +8,21 @@ next-env.d.ts
 .env.*
 
 # Local drafts
-/content/blog/search-roadmap.md
+/content/blog/what-makes-a-document-relevant.md
+/content/blog/from-text-to-an-index.md
+/content/blog/from-boolean-search-to-bm25.md
+/content/blog/how-do-we-know-search-works.md
+/content/blog/improving-the-query.md
+/content/blog/search-on-the-web.md
+/content/blog/learning-to-rank.md
+/content/blog/from-words-to-meaning.md
+/content/blog/reranking-with-bert.md
+/content/blog/dense-retrieval.md
+/content/blog/learned-sparse-retrieval.md
+/content/blog/llms-as-rankers.md
+/content/blog/llms-as-relevance-assessors.md
+/content/blog/rag-from-the-retrieval-side.md
+/content/blog/search-agents.md
 /content/drafts/
 
 # Local planning and model instructions

@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { PageFrame } from '@/components/PageFrame';
 import { NoteWidget } from '@/components/notes/searchWidgets';
-import { seriesContext } from '@/lib/blog';
+import { getNoteLinkTargets, seriesContext } from '@/lib/blog';
 import { formatPostDate, getPost, getPosts } from '@/lib/posts';
 
 export const dynamicParams = false;
@@ -47,6 +47,7 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) notFound();
   const headings = Array.from(post.content.matchAll(/^##\s+(.+)$/gm), (match) => match[1].trim());
   const context = seriesContext(post);
+  const noteLinks = getNoteLinkTargets();
 
   return (
     <PageFrame
@@ -95,6 +96,14 @@ export default async function PostPage({ params }: PostPageProps) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
+            a: ({ href, children, title }) => {
+              const target = noteLinks[href ?? ''] ?? href;
+              return (
+                <a href={target} title={title ?? (target !== href ? 'Work in progress' : undefined)}>
+                  {children}
+                </a>
+              );
+            },
             h2: ({ children }) => (
               <h2 id={headingId(textOf(children))} className="anchor-section">{children}</h2>
             ),
@@ -102,7 +111,7 @@ export default async function PostPage({ params }: PostPageProps) {
             pre: ({ children, ...props }) => {
               const code = Array.isArray(children) ? children[0] : children;
               const className = (code as { props?: { className?: string } })?.props?.className ?? '';
-              if (className.includes('language-widget')) return <NoteWidget name={textOf(code)} />;
+              if (className.includes('language-widget')) return <NoteWidget name={textOf(code)} linkTargets={noteLinks} />;
               return <pre {...props}>{children}</pre>;
             },
           }}

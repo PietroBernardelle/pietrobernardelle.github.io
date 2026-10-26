@@ -6,7 +6,7 @@ export const seriesPartId = (part: number) => `part-${part}`;
 
 /** The ordered parts of a series: written posts link, planned ones are greyed out. */
 export function SeriesParts({ series }: { series: SeriesWithParts }) {
-  if (!series.parts.length) return <p className="availability-note">No entries yet.</p>;
+  if (!series.parts.length) return <p className="availability-note">Work in progress.</p>;
 
   return (
     <ol className="series-parts">
@@ -29,7 +29,7 @@ export function SeriesParts({ series }: { series: SeriesWithParts }) {
             ) : (
               <h3>
                 {part.title}
-                <span className="planned-tag">Coming soon</span>
+                <span className="planned-tag">Work in progress</span>
               </h3>
             )}
           </div>

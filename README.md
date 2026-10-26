@@ -36,7 +36,7 @@ Links are generated automatically: **DOI** (from `doi`; **Paper** from `url` whe
 Unfinished notes can use `draft: true`. They appear with `npm run dev` and are excluded from production builds, published counts, and the sitemap. Keep local-only drafts ignored by Git. Remove the draft flag and explicitly add a note when it is ready to publish.
 
 Notes are grouped into series, defined in `data/blog.ts` (title, one-line pitch, and the planned
-parts, which show greyed out as "Coming soon" until written). Create `content/blog/my-note.md`:
+parts, which show greyed out as "Work in progress" until written). Create `content/blog/my-note.md`:
 
 ```markdown
 ---
@@ -50,6 +50,8 @@ tags: [llms]
 
 Text in Markdown. Use ## headings: they become the post's "On this page" rail.
 ```
+
+Each planned part has a `title` and `slug`. Links to unpublished parts lead to their Work in progress entry in the series list.
 
 The post replaces the planned title for that part, and gets "Part 3 of 10", previous/next links,
 and the series outline automatically. Each series has its own page at `/blog/series/<slug>/`,

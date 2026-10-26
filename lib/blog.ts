@@ -1,7 +1,7 @@
 import { series as allSeries, type Series } from '@/data/blog';
 import { getPosts, type Post } from './posts';
 
-export type SeriesPart = { part: number; title: string; post?: Post };
+export type SeriesPart = { part: number; title: string; slug: string; post?: Post };
 export type SeriesWithParts = Series & { parts: SeriesPart[]; published: number };
 
 /** Every series with its parts in order: written posts fill their planned slot. */
@@ -23,11 +23,23 @@ export function getSeries(): SeriesWithParts[] {
     const parts: SeriesPart[] = [];
     for (let part = 1; part <= count; part++) {
       const post = inSeries.find((p) => p.part === part);
-      const title = post?.title ?? s.planned[part - 1];
-      if (title) parts.push({ part, title, post });
+      const planned = s.planned[part - 1];
+      const title = post?.title ?? planned?.title;
+      const slug = post?.slug ?? planned?.slug;
+      if (title && slug) parts.push({ part, title, slug, post });
     }
-    return { ...s, parts, published: inSeries.length };
+    return { ...s, parts, published: inSeries.filter((post) => !post.draft).length };
   });
+}
+
+/** Unpublished note links lead to their planned entry; published links stay direct. */
+export function getNoteLinkTargets(): Record<string, string> {
+  return Object.fromEntries(
+    getSeries().flatMap((s) => s.parts.map((part) => {
+      const href = `/blog/${part.slug}/`;
+      return [href, part.post ? href : `/blog/series/${s.slug}/#part-${part.part}`];
+    })),
+  );
 }
 
 /** Posts that do not belong to a series. */

@@ -36,7 +36,7 @@ export default async function SeriesPage({ params }: SeriesPageProps) {
       description={s.pitch}
       back={{ href: '/blog/', label: 'All series' }}
       facts={[
-        { label: 'Written', value: `${s.published} written` },
+        { label: 'Published', value: `${s.published} published` },
         ...(latest ? [{ label: 'Latest', value: <Link href={`/blog/${latest.slug}/`}>{latest.title}</Link> }] : []),
       ]}
       rail={s.parts.length ? [{ id: 'parts', label: listLabel, items: s.parts.map((part) => ({ id: seriesPartId(part.part), label: `Part ${part.part}` })) }] : []}
