@@ -405,10 +405,7 @@ button {
    wraps along its rounded outline (shape-outside follows the border-radius). */
 .home-hero {
   display: flow-root;
-  /* Closing rule under the bio, as under the intro on Research and Services; it lines
-     up with the right column's last rule and the end of the rail (FrameEffects). */
   padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
 }
 
 .home-portrait {
@@ -938,7 +935,6 @@ button {
 
 .page-heading--described {
   padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
 }
 
 .page-heading h1 {
@@ -1477,7 +1473,7 @@ button {
     display: block;
   }
 
-  /* The heading's bottom rule already opens the panel. */
+  /* Mobile facts follow the introduction without an extra top rule. */
   .mobile-facts-rail .facts-rail {
     margin-top: 0;
   }
