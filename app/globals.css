@@ -3411,6 +3411,116 @@ a > .link-text,
   max-width: 17rem;
 }
 
+/* Keep the log chart's labels readable without scaling them down with the plot. */
+.zipf-chart {
+  display: grid;
+  grid-template-columns: 1rem 4.5rem minmax(0, 1fr);
+  gap: 0 4px;
+  margin: 24px 0;
+  color: var(--muted);
+  font-family: var(--metadata);
+  font-size: 0.75rem;
+}
+
+.zipf-y-title {
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.zipf-y-labels,
+.zipf-plot {
+  position: relative;
+  height: 12rem;
+}
+
+.zipf-y-labels span {
+  position: absolute;
+  right: 8px;
+  transform: translateY(-50%);
+}
+
+.zipf-plot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.zipf-plot path,
+.zipf-plot line {
+  vector-effect: non-scaling-stroke;
+}
+
+.zipf-guide {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.6;
+}
+
+.zipf-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--background);
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+}
+
+.zipf-x-labels span {
+  position: absolute;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+}
+
+.zipf-x-labels span:first-child {
+  transform: none;
+}
+
+.zipf-x-labels span:last-child {
+  transform: translateX(-100%);
+}
+
+.zipf-x-title {
+  grid-column: 3;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.zipf-readout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-block: 1px solid var(--border);
+}
+
+.zipf-readout > div {
+  min-width: 0;
+  padding: 12px;
+}
+
+.zipf-readout > div + div {
+  border-left: 1px solid var(--border);
+}
+
+.zipf-readout dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.zipf-readout dd {
+  margin: 4px 0 0;
+  font-family: var(--metadata);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.zipf-figure input[type='range'] {
+  min-height: 44px;
+}
+
 .chart-axis {
   stroke: var(--border-strong);
   stroke-width: 1;

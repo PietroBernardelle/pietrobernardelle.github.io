@@ -144,24 +144,33 @@ const PIPELINE_EXAMPLES = [
   'To be, or not to be: that is the question.',
 ];
 
-export function TextPipeline() {
-  const [text, setText] = useState(PIPELINE_EXAMPLES[1]);
-  const [early, setEarly] = useState(false);
+export function TokenisationExample() {
+  return <TextPipeline basic />;
+}
+
+export function TextPipeline({ basic = false }: { basic?: boolean } = {}) {
+  const [text, setText] = useState(PIPELINE_EXAMPLES[basic ? 0 : 1]);
+  const [shortTokens, setShortTokens] = useState(true);
   const [stop, setStop] = useState(true);
   const [stemming, setStemming] = useState(true);
   const stages = useMemo(() => {
     const split = text.split(/[^A-Za-z0-9]+/).filter(Boolean);
-    const tokenised = early ? split.filter((w) => w.length >= 3) : split;
-    const lower = tokenised.map((w) => w.toLowerCase());
-    const stopped = stop ? lower.filter((w) => !STOP.has(w) && w !== 'be' && w !== 'or' && w !== 'not' && w !== 'that') : lower;
-    const stemmed = stemming ? stopped.map(stem) : stopped;
+    if (basic) {
+      const kept = shortTokens ? split.filter((word) => word.length >= 3) : split;
+      return [
+        { label: 'Split into tokens', words: split },
+        { label: 'Drop short tokens', words: kept, skipped: !shortTokens },
+        { label: 'Lowercase', words: kept.map((word) => word.toLowerCase()) },
+      ];
+    }
+    const lower = split.map((word) => word.toLowerCase());
+    const stopped = stop ? lower.filter((word) => !STOP.has(word) && !['be', 'or', 'not', 'that'].includes(word)) : lower;
     return [
-      ['Split into tokens', tokenised],
-      ['Lowercase', lower],
-      ['Remove stopwords', stopped],
-      ['Stem', stemmed],
-    ] as const;
-  }, [text, early, stop, stemming]);
+      { label: 'Split and lowercase', words: lower },
+      { label: 'Remove stopwords', words: stopped, skipped: !stop },
+      { label: 'Stem', words: stemming ? stopped.map(stem) : stopped, skipped: !stemming },
+    ];
+  }, [text, basic, shortTokens, stop, stemming]);
   return (
     <figure className="note-figure">
       <div className="note-controls">
@@ -172,35 +181,47 @@ export function TextPipeline() {
       <div className="note-controls">
         {PIPELINE_EXAMPLES.map((example, i) => (
           <button key={example} type="button" className="note-button" onClick={() => setText(example)}>
-            Example {i + 1}
+            {['Company report', 'Sprained ankle', 'Hamlet'][i]}
           </button>
         ))}
       </div>
       <div className="note-controls">
-        <label className="note-check">
-          <input type="checkbox" checked={early} onChange={(event) => setEarly(event.target.checked)} /> early rule: drop tokens
-          shorter than 3
-        </label>
-        <label className="note-check">
-          <input type="checkbox" checked={stop} onChange={(event) => setStop(event.target.checked)} /> remove stopwords
-        </label>
-        <label className="note-check">
-          <input type="checkbox" checked={stemming} onChange={(event) => setStemming(event.target.checked)} /> stem
-        </label>
+        {basic ? (
+          <label className="note-check">
+            <input type="checkbox" checked={shortTokens} onChange={(event) => setShortTokens(event.target.checked)} />
+            Drop tokens shorter than 3 characters
+          </label>
+        ) : (
+          <>
+            <label className="note-check">
+              <input type="checkbox" checked={stop} onChange={(event) => setStop(event.target.checked)} /> Remove stopwords
+            </label>
+            <label className="note-check">
+              <input type="checkbox" checked={stemming} onChange={(event) => setStemming(event.target.checked)} /> Apply stemming
+            </label>
+          </>
+        )}
       </div>
-      <ol className="note-stages">
-        {stages.map(([label, words], i) => (
-          <li key={label} data-skipped={(i === 2 && !stop) || (i === 3 && !stemming) ? 'true' : undefined}>
-            <span className="note-tag">{label}</span>
+      <ol className="note-stages" aria-live="polite">
+        {stages.map(({ label, words, skipped }) => (
+          <li key={label} data-skipped={skipped ? 'true' : undefined}>
+            <span className="note-tag">{label}{skipped ? ' (off)' : ''}</span>
             <span className="note-chips">
-              {words.length ? words.map((w, j) => <span key={`${w}${j}`} className="note-chip">{w}</span>) : <em>nothing left</em>}
+              {words.length ? words.map((word, i) => <span key={`${word}${i}`} className="note-chip">{word}</span>) : <em>nothing left</em>}
             </span>
           </li>
         ))}
       </ol>
       <figcaption>
-        Each stage throws something away to make matching easier. Try the Hamlet line with stopwords removed, then
-        the report with the early three-letter rule: “10” and “bi” vanish.
+        {basic ? (
+          <>Read from top to bottom. Spaces and punctuation separate the tokens, then the length rule removes short
+            ones. In the report, “s”, “bi” and “10” disappear. Switch the rule off to keep them. Longer tokens stay whole.</>
+        ) : (
+          <>Each row uses the previous row’s output. Here, short tokens stay unless the stopword list removes them.
+            Try the ankle example to see “treating” become “treat” and “sprained” become “sprain”, then switch stemming off.
+            With Hamlet, toggle stopword removal to see how much of the phrase disappears. This toy stemmer only strips
+            “-ing”, “-ed” and “-s”, so it can also produce awkward results.</>
+        )}
       </figcaption>
     </figure>
   );
@@ -210,18 +231,88 @@ export function TextPipeline() {
 
 const ZIPF_WORDS = ['the', 'of', 'and', 'to', 'a', 'in', 'is', 'that', 'for', 'it', 'was', 'on', 'with', 'as', 'by', 'at', 'he', 'from', 'his', 'be'];
 
+const ZIPF_RANKS = [1, 10, 100, 1000, 10000];
+const ZIPF_FIRST_COUNT = 100000;
+
+function ZipfTail() {
+  const [step, setStep] = useState(2);
+  const rank = ZIPF_RANKS[step];
+  const count = ZIPF_FIRST_COUNT / rank;
+  const format = (value: number) => value.toLocaleString('en-AU');
+  const position = (step / (ZIPF_RANKS.length - 1)) * 100;
+
+  return (
+    <>
+      <p className="note-lead">
+        Each grid interval represents a tenfold change. Use the slider to inspect a word further down the ranking.
+      </p>
+      <div
+        className="zipf-chart"
+        role="img"
+        aria-label={`Idealised Zipf distribution on logarithmic axes. The word at rank ${format(rank)} appears ${format(count)} times. Each tenfold increase in rank reduces the count tenfold.`}
+      >
+        <span className="zipf-y-title" aria-hidden="true">Occurrences</span>
+        <div className="zipf-y-labels" aria-hidden="true">
+          {ZIPF_RANKS.map((rank, index) => (
+            <span key={rank} style={{ top: `${index * 25}%` }}>{format(ZIPF_FIRST_COUNT / rank)}</span>
+          ))}
+        </div>
+        <div className="zipf-plot" aria-hidden="true">
+          <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+            {ZIPF_RANKS.map((rank, index) => (
+              <g key={rank} className="chart-grid">
+                <line x1={index * 100} x2={index * 100} y1="0" y2="200" />
+                <line x1="0" x2="400" y1={index * 50} y2={index * 50} />
+              </g>
+            ))}
+            <path d="M0 0 V200 H400" className="chart-axis" fill="none" />
+            <path
+              d={`M0 ${step * 50} H${step * 100} V200`}
+              className="zipf-guide"
+              fill="none"
+            />
+            <path d="M0 0 L400 200" className="chart-line chart-line--accent" />
+          </svg>
+          <span className="zipf-point" style={{ left: `${position}%`, top: `${position}%` }} />
+          <div className="zipf-x-labels">
+            {ZIPF_RANKS.map((rank, index) => (
+              <span key={rank} style={{ left: `${index * 25}%` }}>{rank >= 1000 ? `${rank / 1000}k` : rank}</span>
+            ))}
+          </div>
+        </div>
+        <span className="zipf-x-title" aria-hidden="true">Word rank (k = 1,000)</span>
+      </div>
+      <div className="note-controls">
+        <label className="note-range">
+          <span>Inspect a word rank</span>
+          <input
+            type="range"
+            min={0}
+            max={ZIPF_RANKS.length - 1}
+            step={1}
+            value={step}
+            aria-valuetext={`Rank ${format(rank)}, ${format(count)} occurrences`}
+            onChange={(event) => setStep(Number(event.target.value))}
+          />
+          <output>{format(rank)}</output>
+        </label>
+      </div>
+      <dl className="zipf-readout" aria-live="polite" aria-atomic="true">
+        <div><dt>Word rank</dt><dd>{format(rank)}</dd></div>
+        <div><dt>Occurrences</dt><dd>{format(count)}</dd></div>
+      </dl>
+    </>
+  );
+}
+
 export function ZipfCurve() {
   const [scale, setScale] = useState<'linear' | 'log'>('linear');
-  // Idealised counts for a collection of one million words: frequency ≈ 0.1 × N / rank.
-  const freq = (rank: number) => 100000 / rank;
-  const linear = ZIPF_WORDS.map((_, i) => ({ x: i + 1, y: freq(i + 1) / 1000 }));
-  const logSeries: Series[] = [
-    { label: 'Zipf', points: Array.from({ length: 41 }, (_, i) => [i / 10, Math.log10(freq(10 ** (i / 10)))] as [number, number]) },
-  ];
+  // Idealised counts for a collection of one million words.
+  const linear = ZIPF_WORDS.map((_, i) => ({ x: i + 1, y: ZIPF_FIRST_COUNT / (i + 1) / 1000 }));
   return (
-    <figure className="note-figure">
+    <figure className="note-figure zipf-figure">
       <div className="note-controls">
-        <Toggle label="Scale" options={[['linear', 'Top 20 words'], ['log', 'All ranks, log scale']] as const} value={scale} onChange={setScale} />
+        <Toggle label="View" options={[['linear', 'Top 20 words'], ['log', 'The long tail']] as const} value={scale} onChange={setScale} />
       </div>
       {scale === 'linear' ? (
         <>
@@ -238,29 +329,11 @@ export function ZipfCurve() {
           />
           <p className="note-matched">1 “{ZIPF_WORDS[0]}”, 2 “{ZIPF_WORDS[1]}”, 3 “{ZIPF_WORDS[2]}”, 4 “{ZIPF_WORDS[3]}” … 20 “{ZIPF_WORDS[19]}”</p>
         </>
-      ) : (
-        <LineChart
-          label="On log scales, frequency against rank is a straight line"
-          series={logSeries}
-          xMax={4}
-          yMax={5}
-          xTicks={[0, 1, 2, 3, 4]}
-          yTicks={[1, 2, 3, 4, 5]}
-          xLabel="rank: 10 to the power of …"
-          yLabel="count: 10^…"
-          overlay={(x, y) => (
-            <>
-              <text x={x(0.1)} y={y(4.6)} className="chart-note">too common to discriminate</text>
-              <text x={x(1.5)} y={y(3.2)} className="chart-note">the useful middle</text>
-              <text x={x(3.05)} y={y(1.6)} className="chart-note">rare: names, typos</text>
-            </>
-          )}
-        />
-      )}
+      ) : <ZipfTail />}
       <figcaption>
-        Idealised counts for a collection of a million words, where a word’s frequency is roughly a tenth of the
-        total divided by its rank. The second word appears half as often as the first, the tenth a tenth as often. On
-        log scales, that pattern is a straight line.
+        {scale === 'linear'
+          ? 'Idealised counts for a collection of a million words. The second word appears half as often as the first, the tenth a tenth as often.'
+          : 'Both axes use a logarithmic scale, with actual ranks and counts shown. Moving from rank 100 to rank 1,000 reduces the idealised count from 1,000 to 100. This tenfold change in both quantities produces the straight line. These are illustrative counts, not measurements from a collection.'}
       </figcaption>
     </figure>
   );
@@ -684,6 +757,7 @@ export function Pooling() {
 export const BASICS_WIDGETS: Record<string, () => React.JSX.Element> = {
   'relevance-lens': RelevanceLens,
   'vocabulary-gap': VocabularyGap,
+  'tokenisation-example': TokenisationExample,
   'text-pipeline': TextPipeline,
   'zipf-curve': ZipfCurve,
   'postings-merge': PostingsMerge,
